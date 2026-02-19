@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output  (committed by CI as part of the zip, but
+# not checked into the repo — each consumer builds fresh).
+build/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# npm debug
+npm-debug.log*
+
+# Optional: lock file (remove this line if you prefer to commit it)
+# package-lock.json

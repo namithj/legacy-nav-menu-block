@@ -1,0 +1,41 @@
+{
+	"name": "@smartlogix/legacy-nav-menu-block",
+	"version": "1.0.0",
+	"description": "A Gutenberg block that renders classic WordPress navigation menus via wp_nav_menu().",
+	"author": "Smartlogix",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"gutenberg",
+		"block",
+		"navigation",
+		"menu",
+		"wp_nav_menu"
+	],
+	"homepage": "https://github.com/namithj/legacy-nav-menu-block",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/namithj/legacy-nav-menu-block.git"
+	},
+	"bugs": {
+		"url": "https://github.com/namithj/legacy-nav-menu-block/issues"
+	},
+	"files": [
+		"build/",
+		"legacy-nav-menu.php",
+		"readme.txt",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"lint:js": "wp-scripts lint-js",
+		"lint:css": "wp-scripts lint-style",
+		"format": "wp-scripts format",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"packages-update": "wp-scripts packages-update"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^30.0.0"
+	}
+}

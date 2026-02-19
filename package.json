@@ -1,5 +1,5 @@
 {
-	"name": "@smartlogix/legacy-nav-menu-block",
+	"name": "@namithj/legacy-nav-menu-block",
 	"version": "1.0.0",
 	"description": "A Gutenberg block that renders classic WordPress navigation menus via wp_nav_menu().",
 	"author": "Smartlogix",

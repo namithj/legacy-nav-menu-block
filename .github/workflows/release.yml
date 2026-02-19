@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write    # needed to create GitHub Releases
+  packages: write    # needed to publish to GitHub Packages
 
 jobs:
   release:
@@ -34,7 +35,7 @@ jobs:
           node-version: 20
           cache: npm
           registry-url: https://npm.pkg.github.com
-          scope: '@smartlogix'
+          scope: '@namithj'
 
       # ── Install & Build ──
       - name: Install dependencies

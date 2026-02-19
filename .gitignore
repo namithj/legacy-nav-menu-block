@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output — committed so Composer/Packagist consumers
+# receive pre-built assets. Run `npm run build` before tagging.
+# build/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# npm debug
+npm-debug.log*
+
+# Optional: lock file (remove this line if you prefer to commit it)
+# package-lock.json

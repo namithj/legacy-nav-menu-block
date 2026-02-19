@@ -1,0 +1,19 @@
+/**
+ * Editor-only styles for the Legacy Nav Menu block.
+ */
+
+.wp-block-smartlogix-legacy-nav-menu {
+	// Ensure the block shows a minimum height in the editor
+	// when a preview is loading.
+	min-height: 2rem;
+
+	.wp-block-smartlogix-legacy-nav-menu__notice {
+		margin: 0;
+	}
+
+	// Style the server-side-render wrapper so it doesn't collapse.
+	.components-placeholder,
+	.block-editor-warning {
+		pointer-events: none;
+	}
+}

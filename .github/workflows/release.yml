@@ -1,0 +1,56 @@
+# ──────────────────────────────────────────────────────────────
+# Release – verify build & attach zip to GitHub Release
+#
+# Triggered when a GitHub Release is published.
+# Packagist auto-updates via its GitHub webhook.
+# ──────────────────────────────────────────────────────────────
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Verify & Attach Zip
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify build is up-to-date
+        run: |
+          npm run build
+          if ! git diff --quiet build/; then
+            echo "::error::build/ is stale — run 'npm run build' and commit before releasing."
+            exit 1
+          fi
+
+      - name: Create installable zip
+        run: |
+          SLUG="legacy-nav-menu-block"
+          mkdir -p "$SLUG"
+          cp -r build/              "$SLUG/build/"
+          cp    legacy-nav-menu.php "$SLUG/"
+          cp    composer.json       "$SLUG/"
+          cp    LICENSE             "$SLUG/" 2>/dev/null || true
+          zip -r "${SLUG}.zip" "$SLUG"
+          echo "ZIP=${SLUG}.zip" >> "$GITHUB_ENV"
+
+      - name: Attach zip to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.ZIP }}

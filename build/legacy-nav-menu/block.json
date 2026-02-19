@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartlogix/legacy-nav-menu",
+  "version": "1.0.0",
+  "title": "Legacy Nav Menu",
+  "category": "theme",
+  "icon": "menu",
+  "description": "Renders a classic WordPress navigation menu via wp_nav_menu(). Supports menu selection, container, depth, and other common options.",
+  "keywords": [
+    "navigation",
+    "menu",
+    "nav",
+    "legacy",
+    "wp_nav_menu"
+  ],
+  "textdomain": "legacy-nav-menu",
+  "supports": {
+    "html": false,
+    "reusable": true,
+    "anchor": true,
+    "className": true
+  },
+  "attributes": {
+    "menuId": {
+      "type": "integer",
+      "default": 0
+    },
+    "themeLocation": {
+      "type": "string",
+      "default": ""
+    },
+    "container": {
+      "type": "string",
+      "default": "nav",
+      "enum": [
+        "",
+        "div",
+        "nav"
+      ]
+    },
+    "containerClass": {
+      "type": "string",
+      "default": ""
+    },
+    "containerAriaLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "menuClass": {
+      "type": "string",
+      "default": "menu"
+    },
+    "depth": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 10
+    },
+    "itemSpacing": {
+      "type": "string",
+      "default": "preserve",
+      "enum": [
+        "preserve",
+        "discard"
+      ]
+    }
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
